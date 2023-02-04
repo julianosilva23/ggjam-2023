@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+//using System.Collections;
 
-public class Dash : MonoBehaviour
+public class PlayerAction : MonoBehaviour
 {
     public float dashDuration = 0.5f;
     public float dashSpeed = 10f;
@@ -27,6 +28,7 @@ public class Dash : MonoBehaviour
 
     private void OnActionDash(InputAction.CallbackContext context)
     {
+        Debug.Log("Dash!!!");
         if (context.performed && !isDashing && energy >= dashCost)
         {
             dashTime = dashDuration;
