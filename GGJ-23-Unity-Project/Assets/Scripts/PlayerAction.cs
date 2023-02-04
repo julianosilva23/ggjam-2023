@@ -4,14 +4,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerAction : MonoBehaviour
 {
-    public float dashDuration = 100000f;
-    public float dashSpeed = 1f;
+    public float dashDuration = 0.2f;
+    public float dashSpeed = 5f;
     public float energy = 100f;
     public float maxEnergy = 100f;
-    public float dashCost = 20f;
+    public float dashCost = 60f;
     public float shieldCastDuration = 0.5f;
-    public float shieldCastCost = 50f;
-    public float energyRecoverySpeed = 1f;
+    public float shieldCastCost = 80f;
+    public float energyRecoverySpeed = 50f;
 
     private Rigidbody2D rb2d;
     private float dashTime;
@@ -38,11 +38,11 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
-    private void OnActionShieldCast(InputAction.CallbackContext context)
+    private void OnActionShieldCast(InputValue context)
     {
-        Debug.Log("Shield!!!");
-        if (context.performed && !isCastingShield && shieldCastCost <= energy)
+        if (!isCastingShield && shieldCastCost <= energy)
         {
+            Debug.Log("Shield!!!");
             shieldCastTime = shieldCastDuration;
             isCastingShield = true;
             energy -= shieldCastCost;
@@ -74,6 +74,7 @@ public class PlayerAction : MonoBehaviour
             {
                 isCastingShield = false;
                 playerController.SetVulnerability(false);
+                Debug.Log("Shield Over...");
             }
         }
 

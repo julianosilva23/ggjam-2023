@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8661966037345692342}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   vulnerable: 1
+  canMove: 1
   score: 0
 --- !u!114 &107790340097166662
 MonoBehaviour:
@@ -94,14 +95,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffba5bca232e9414f8a7ae5336bc7a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashDuration: 0.5
-  dashSpeed: 10
+  dashDuration: 0.2
+  dashSpeed: 5
   energy: 100
   maxEnergy: 100
-  dashCost: 20
+  dashCost: 60
   shieldCastDuration: 0.5
-  shieldCastCost: 50
-  energyRecoverySpeed: 1
+  shieldCastCost: 80
+  energyRecoverySpeed: 50
 --- !u!50 &2115329306755403596
 Rigidbody2D:
   serializedVersion: 4
