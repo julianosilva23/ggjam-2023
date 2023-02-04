@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10.0f;
+    public bool vulnerable = true;
 
     private Rigidbody2D rigidBody;
     private Vector2 movementInput;
@@ -24,16 +25,24 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rigidBody.velocity = movementInput * speed;
+
+        if (movementInput.sqrMagnitude > 0)
+        {
+            float angle = Mathf.Atan2(movementInput.y, movementInput.x) * Mathf.Rad2Deg;
+            rigidBody.rotation = angle;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && vulnerable)
         {
             gameController.ChangeRole();
         }
     }
-}
-/*In this script, the player's movement is determined by the movementInput vector, which is updated in the OnMove method in response to player input. The InputValue object passed to OnMove represents the current state of the input, and the Get<Vector2> method is used to extract a 2D vector from the input. The rigidBody.velocity property is set to the movementInput vector multiplied by the speed value, causing the player character to move in the desired direction.
 
-Note: In this script, movement input is handled in the FixedUpdate method rather than the Update method, as is done in the previous script. This is because the new input system uses fixed-update-based inputs by default, so it's recommended to handle player movement in FixedUpdate as well to ensure smooth and consistent movement.*/
+    public void SetVulnerability(bool isVulnerable)
+    {
+        vulnerable = isVulnerable;
+    }
+}
