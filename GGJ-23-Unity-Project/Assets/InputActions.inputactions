@@ -1,0 +1,106 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "DS4-1",
+            "id": "4bdeb538-c393-4b5e-8469-7fb0e27c7836",
+            "actions": [
+                {
+                    "name": "Player1Horizontal",
+                    "type": "Value",
+                    "id": "ea291aea-24ce-4c80-8161-728860162a8d",
+                    "expectedControlType": "Axis",
+                    "processors": "AxisDeadzone",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Player1Vertical",
+                    "type": "Value",
+                    "id": "072b17fa-f738-49c7-88b4-9aece3023ee1",
+                    "expectedControlType": "Axis",
+                    "processors": "AxisDeadzone",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "94d21fa8-24f8-4710-9959-09c4f4fad546",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shield",
+                    "type": "Button",
+                    "id": "3a236e66-4b18-43d4-91ed-6d495e275083",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1b86469b-480f-44a1-bd45-13814c253095",
+                    "path": "<Gamepad>/leftStick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DS4",
+                    "action": "Player1Horizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dde170b2-de24-4d7e-9c79-e25efc2c63c1",
+                    "path": "<Gamepad>/leftStick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DS4",
+                    "action": "Player1Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a02167ae-002d-46a5-b1b3-ced8e9669499",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DS4",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1334ea22-6bf2-4ea0-be31-45a24c59e37c",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "DS4",
+                    "action": "Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "DS4",
+            "bindingGroup": "DS4",
+            "devices": [
+                {
+                    "devicePath": "<DualShock4GamepadAndroid>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
