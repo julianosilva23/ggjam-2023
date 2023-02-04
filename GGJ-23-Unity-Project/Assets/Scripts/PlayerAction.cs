@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerAction : MonoBehaviour
 {
-    public float dashDuration = 0.5f;
-    public float dashSpeed = 10f;
+    public float dashDuration = 100000f;
+    public float dashSpeed = 1f;
     public float energy = 100f;
     public float maxEnergy = 100f;
     public float dashCost = 20f;
@@ -26,19 +26,21 @@ public class PlayerAction : MonoBehaviour
         playerController = GetComponent<PlayerController>();
     }
 
-    private void OnActionDash(InputAction.CallbackContext context)
+    private void OnActionDash(InputValue context)
     {
-        Debug.Log("Dash!!!");
-        if (context.performed && !isDashing && energy >= dashCost)
+        if (!isDashing && energy >= dashCost)
         {
+            playerController.canMove = false;
             dashTime = dashDuration;
             isDashing = true;
+            Debug.Log(isDashing);
             energy -= dashCost;
         }
     }
 
     private void OnActionShieldCast(InputAction.CallbackContext context)
     {
+        Debug.Log("Shield!!!");
         if (context.performed && !isCastingShield && shieldCastCost <= energy)
         {
             shieldCastTime = shieldCastDuration;
@@ -53,12 +55,14 @@ public class PlayerAction : MonoBehaviour
         if (isDashing)
         {
             dashTime -= Time.fixedDeltaTime;
-            rb2d.velocity = transform.forward * dashSpeed;
+            rb2d.velocity = (transform.right * dashSpeed)* 10;
+            Debug.Log(rb2d.velocity);
 
             if (dashTime <= 0)
             {
                 isDashing = false;
                 rb2d.velocity = Vector2.zero;
+                playerController.canMove = true;
             }
         }
 
@@ -76,6 +80,7 @@ public class PlayerAction : MonoBehaviour
         if (energy < maxEnergy)
         {
             energy += energyRecoverySpeed * Time.fixedDeltaTime;
+            //Debug.Log(energy);
         }
     }
 }

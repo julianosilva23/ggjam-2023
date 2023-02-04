@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 10.0f;
     public bool vulnerable = true;
+    public bool canMove = true;
 
     public float score = 0;
 
@@ -26,12 +27,15 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidBody.velocity = movementInput * speed;
-
-        if (movementInput.sqrMagnitude > 0)
+        if (canMove)
         {
-            float angle = Mathf.Atan2(movementInput.y, movementInput.x) * Mathf.Rad2Deg;
-            rigidBody.rotation = angle;
+            rigidBody.velocity = movementInput * speed;
+
+            if (movementInput.sqrMagnitude > 0)
+            {
+                float angle = Mathf.Atan2(movementInput.y, movementInput.x) * Mathf.Rad2Deg;
+                rigidBody.rotation = angle;
+            }
         }
     }
 
