@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 10.0f;
     public bool vulnerable = true;
 
+    public float score = 0;
+
     private Rigidbody2D rigidBody;
     private Vector2 movementInput;
 

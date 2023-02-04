@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     public Transform player1;
     public Transform player2;
