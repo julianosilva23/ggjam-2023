@@ -703,6 +703,8 @@ GameObject:
   - component: {fileID: 8548856135755686037}
   - component: {fileID: 8548856135755686033}
   - component: {fileID: 5645748233204433704}
+  - component: {fileID: 2780573622548925251}
+  - component: {fileID: 3283063997315708093}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -796,7 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashDuration: 0.2
-  jumpDuration: 1.2
+  jumpDuration: 0.9
   dashSpeed: 1
   energy: 100
   maxEnergy: 100
@@ -825,6 +827,8 @@ MonoBehaviour:
   vulnerable: 1
   canMove: 1
   score: 0
+  stunDuration: 3
+  stunnedTime: 0
   gaugeCanvas: {fileID: 8548856135513303170}
   arrow: {fileID: 4938865480297371239}
   flag: {fileID: 4734153057342565283}
@@ -887,7 +891,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8548856135755686027}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -896,6 +900,41 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.083354056}
   m_Size: {x: 0.8, y: 1.6335412}
   m_Direction: 0
+--- !u!95 &2780573622548925251
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548856135755686027}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 61746dae351315641a6a5122d0179ad2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!111 &3283063997315708093
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548856135755686027}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1f4d905f0c0bfd847b364f4e118b9281, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &8548856136238651820
 GameObject:
   m_ObjectHideFlags: 0

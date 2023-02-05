@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerAction : MonoBehaviour
 {
     public float dashDuration = 0.2f;
-    public float jumpDuration = 1.2f;
+    public float jumpDuration = 1f;
     public float dashSpeed = 5f;
     public float energy = 100f;
     public float maxEnergy = 100f;
@@ -33,6 +33,8 @@ public class PlayerAction : MonoBehaviour
     private bool isCastingShield;
     private PlayerController playerController;
 
+    private Animator animator;
+
     private void Start()
     {
         // remover esta parte é somente um teste
@@ -40,6 +42,8 @@ public class PlayerAction : MonoBehaviour
         {
             screenShake.TriggerShake();
         }
+
+        animator = GetComponent<Animator>();
     }
 
     private void Awake()
@@ -79,6 +83,8 @@ public class PlayerAction : MonoBehaviour
             jumpTime = jumpDuration;
             isJumping = true;
             energy -= jumpCost;
+            animator.enabled = true;
+            animator.Play("Jump");
         }
     }
 
@@ -108,15 +114,15 @@ public class PlayerAction : MonoBehaviour
             playerController.SetVulnerability(true);
             playerController.SetActiveCollider(false);
 
-            transform.localScale += new Vector3(0.1f, 0, 0);
+            Debug.Log(jumpTime);
 
             if (jumpTime <= 0)
             {
-                Debug.Log("acabou o pulo");
+                animator.enabled = false;
                 playerController.SetVulnerability(false);
                 playerController.SetActiveCollider(true);
+                Debug.Log("parou de pular");
                 isJumping = false;
-                transform.localScale = new Vector3(1f, 1f, 0);
             }
         }        
 

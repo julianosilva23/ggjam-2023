@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour
     public PlayerController player2;
     public Vector3 initialPosition1;
     public Vector3 initialPosition2;
-
     public ScreenShake screenShake;
 
     public float scoreGainRate;

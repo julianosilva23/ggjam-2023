@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 1150056921}
   - component: {fileID: 1150056920}
   - component: {fileID: 1150056919}
+  - component: {fileID: 1150056922}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -671,6 +672,7 @@ MonoBehaviour:
   player2: {fileID: 0}
   initialPosition1: {x: -7.9, y: 0, z: 0}
   initialPosition2: {x: 7.9, y: 0, z: 0}
+  screenShake: {fileID: 0}
   scoreGainRate: 1
   roleChangeTime: 10
   scoreCap: 100
@@ -750,6 +752,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!111 &1150056922
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150056918}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 14b3f9a2e141f5944846bbc8eef4fc64, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 14b3f9a2e141f5944846bbc8eef4fc64, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1583768767
 GameObject:
   m_ObjectHideFlags: 0
