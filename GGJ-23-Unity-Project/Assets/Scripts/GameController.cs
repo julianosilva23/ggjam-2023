@@ -100,6 +100,8 @@ public class GameController : MonoBehaviour
         player1.transform.position = initialPosition1;
         player2.transform.position = initialPosition2;
         player1Scores = !player1Scores;
+        player1.SetFlag(player1Scores);
+        player2.SetFlag(!player1Scores);
         currentTime = 0;
         player1.SetVulnerability(true);
         player2.SetVulnerability(true);

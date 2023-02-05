@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
 
     public Transform gaugeCanvas;
 
+    //public GameObject flag;
+    public GameObject aoe;
+
     private Rigidbody2D rigidBody;
     private Vector2 movementInput;
 
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
         {
             gameController.player1 = this;
             transform.position = gameController.initialPosition1;
+            this.SetFlag(true);
         
         } else {
             gameController.player2 = this;
@@ -64,8 +68,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log("hunter " + vulnerable);
         if (other.gameObject.CompareTag("Player") && vulnerable)
         {
+            Debug.Log("player " + other.gameObject.GetComponent<PlayerController>().vulnerable);
             if(other.gameObject.GetComponent<PlayerController>().vulnerable)
             {
                 SetVulnerability(false);
@@ -83,5 +89,11 @@ public class PlayerController : MonoBehaviour
     public void SetVulnerability(bool isVulnerable)
     {
         vulnerable = isVulnerable;
+    }
+
+    public void SetFlag(bool isFlagged)
+    {
+        //flag.SetActive(isFlagged);
+        aoe.SetActive(isFlagged);
     }
 }

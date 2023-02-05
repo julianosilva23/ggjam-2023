@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5130264752459468107, guid: b0a85a70fb3461e4ab6e81f0e0b73509, type: 3}
+      propertyPath: gaugeCanvas
+      value: 
+      objectReference: {fileID: 1264157991}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0a85a70fb3461e4ab6e81f0e0b73509, type: 3}
 --- !u!1 &519420028
@@ -358,6 +362,11 @@ RectTransform:
 --- !u!224 &950444424 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 908275463068198552, guid: b0a85a70fb3461e4ab6e81f0e0b73509, type: 3}
+  m_PrefabInstance: {fileID: 307895383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1264157991 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7878380175138055542, guid: b0a85a70fb3461e4ab6e81f0e0b73509, type: 3}
   m_PrefabInstance: {fileID: 307895383}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1276064575
@@ -915,7 +924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8548856136666720117, guid: 8dcf5976e6c25684b901158f86add0ba, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8548856136666720117, guid: 8dcf5976e6c25684b901158f86add0ba, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -927,11 +936,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8548856136709385903, guid: 8dcf5976e6c25684b901158f86add0ba, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8548856136709385903, guid: 8dcf5976e6c25684b901158f86add0ba, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8548856136709385903, guid: 8dcf5976e6c25684b901158f86add0ba, type: 3}
       propertyPath: m_AnchoredPosition.x

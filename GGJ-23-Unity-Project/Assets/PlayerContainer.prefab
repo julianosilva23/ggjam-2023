@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5697677391950964626
 Transform:
   m_ObjectHideFlags: 0
@@ -39,7 +39,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106860914900521344}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &576838317023505822
 Transform:
   m_ObjectHideFlags: 0
@@ -654,6 +654,7 @@ MonoBehaviour:
   screenShake: {fileID: 0}
   greenGauge: {fileID: 8548856136709385903}
   redGauge: {fileID: 8548856136666720117}
+  shield: {fileID: 2106860914900521344}
 --- !u!114 &8548856135755686036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +673,7 @@ MonoBehaviour:
   screenShake: {fileID: 0}
   score: 0
   gaugeCanvas: {fileID: 8548856135513303170}
+  aoe: {fileID: 2358709873457097617}
 --- !u!114 &8548856135755686037
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class PlayerAction : MonoBehaviour
     public RectTransform greenGauge;
     public RectTransform redGauge;
 
+    public GameObject shield;
+
     private Rigidbody2D rb2d;
     private float dashTime;
     private bool isDashing;
@@ -46,7 +48,7 @@ public class PlayerAction : MonoBehaviour
             playerController.canMove = false;
             dashTime = dashDuration;
             isDashing = true;
-            Debug.Log(isDashing);
+            //Debug.Log(isDashing);
             energy -= dashCost;
         }
     }
@@ -55,11 +57,12 @@ public class PlayerAction : MonoBehaviour
     {
         if (!isCastingShield && shieldCastCost <= energy)
         {
-            Debug.Log("Shield!!!");
+            //Debug.Log("Shield!!!");
             shieldCastTime = shieldCastDuration;
             isCastingShield = true;
             energy -= shieldCastCost;
-            playerController.SetVulnerability(true);
+            playerController.SetVulnerability(false);
+            shield.SetActive(true);
         }
     }
 
@@ -86,8 +89,9 @@ public class PlayerAction : MonoBehaviour
             if (shieldCastTime <= 0)
             {
                 isCastingShield = false;
-                playerController.SetVulnerability(false);
+                playerController.SetVulnerability(true);
                 Debug.Log("Shield Over...");
+                shield.SetActive(false);
             }
         }
 
