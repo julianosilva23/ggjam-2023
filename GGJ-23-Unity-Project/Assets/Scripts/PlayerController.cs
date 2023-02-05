@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         } else {
             gameController.player2 = this;
             transform.position = gameController.initialPosition2;
+            this.SetFlag(false);
             gameController.buildPlayers();
         }
     }
