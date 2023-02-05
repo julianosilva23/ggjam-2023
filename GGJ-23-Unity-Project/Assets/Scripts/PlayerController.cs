@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public bool canMove = true;
 
     public float score = 0;
+    public float stunDuration = 3;
+    public float stunnedTime;
 
     public Transform gaugeCanvas;
 
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         // verificar o jogar 1 e 2
+        stunnedTime = stunDuration + 1;
         if (gameController.player1 == null)
         {
             gameController.player1 = this;
@@ -51,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (canMove)
+        if (canMove && !Stunned())
         {
             rigidBody.velocity = movementInput * speed;
 
@@ -66,12 +69,26 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         gaugeCanvas.position =  transform.position;
+        if (Stunned()){
+            Debug.Log("Stunned!!!");
+            stunnedTime += Time.deltaTime;
+            if(Stunned())
+            {
+                SetVulnerability(true);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("hunter " + vulnerable);
-        if (other.gameObject.CompareTag("Player") && vulnerable)
+        Debug.Log("shield" + gameObject.GetComponent<PlayerAction>().isShieldActive());
+        if(gameObject.GetComponent<PlayerAction>().isShieldActive() && 
+            (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Hunter")))
+        {
+            other.gameObject.GetComponent<PlayerController>().stunDuration = 0;
+            other.gameObject.GetComponent<PlayerController>().SetVulnerability(false);
+            return;
+        }else if (other.gameObject.CompareTag("Player") && vulnerable)
         {
             Debug.Log("player " + other.gameObject.GetComponent<PlayerController>().vulnerable);
             if(other.gameObject.GetComponent<PlayerController>().vulnerable)
@@ -102,9 +119,14 @@ public class PlayerController : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = isActive;
     }
     
-    public void Retry()
+    public bool Stunned()
     {
-        Debug.Log("Retry!!!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+        if(stunnedTime < stunDuration)
+        {
+            Debug.Log("STUNNED!!!");
+            return true;
+        }
+        return false;
     }
 }
