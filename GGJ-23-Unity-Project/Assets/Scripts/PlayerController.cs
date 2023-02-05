@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -98,5 +99,11 @@ public class PlayerController : MonoBehaviour
     public void SetActiveCollider(bool isActive)
     {
         GetComponent<CapsuleCollider2D>().enabled = isActive;
+    }
+    
+    public void Retry()
+    {
+        Debug.Log("Retry!!!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
