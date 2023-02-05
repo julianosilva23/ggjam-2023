@@ -13,6 +13,9 @@ public class PlayerAction : MonoBehaviour
     public float shieldCastCost = 80f;
     public float energyRecoverySpeed = 50f;
 
+    public RectTransform greenGauge;
+    public RectTransform redGauge;
+
     private Rigidbody2D rb2d;
     private float dashTime;
     private bool isDashing;
@@ -83,5 +86,11 @@ public class PlayerAction : MonoBehaviour
             energy += energyRecoverySpeed * Time.fixedDeltaTime;
             //Debug.Log(energy);
         }
+        GaugeUpdate();
+    }
+
+    private void GaugeUpdate()
+    {
+        gauge.Width = (energy / maxEnergy) * 2;
     }
 }
