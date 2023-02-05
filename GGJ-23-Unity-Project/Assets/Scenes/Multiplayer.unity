@@ -534,7 +534,6 @@ GameObject:
   - component: {fileID: 1150056921}
   - component: {fileID: 1150056920}
   - component: {fileID: 1150056919}
-  - component: {fileID: 1150056922}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -559,7 +558,7 @@ MonoBehaviour:
   initialPosition1: {x: -7.9, y: 0, z: 0}
   initialPosition2: {x: 7.9, y: 0, z: 0}
   screenShake: {fileID: 0}
-  scoreGainRate: 1
+  scoreGainRate: 3
   roleChangeTime: 10
   scoreCap: 100
   distanceCap: 10

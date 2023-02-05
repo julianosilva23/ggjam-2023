@@ -118,8 +118,8 @@ public class GameController : MonoBehaviour
 
     private void ScoreScreenUpdate()
     {
-        scoreText1.text = player1.score + "/" + scoreCap;
-        scoreText2.text = player2.score + "/" + scoreCap;
+        scoreText1.text = (int) player1.score + "/" + scoreCap;
+        scoreText2.text = (int) player2.score + "/" + scoreCap;
     }
 
     public void ChangeRole()
