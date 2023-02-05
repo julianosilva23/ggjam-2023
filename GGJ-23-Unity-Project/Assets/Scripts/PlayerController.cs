@@ -5,6 +5,12 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 10.0f;
     public bool vulnerable = true;
+    public bool canMove = true;
+    public ScreenShake screenShake;
+
+    public float score = 0;
+
+    public Transform gaugeCanvas;
 
     private Rigidbody2D rigidBody;
     private Vector2 movementInput;
@@ -24,20 +30,38 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidBody.velocity = movementInput * speed;
-
-        if (movementInput.sqrMagnitude > 0)
+        if (canMove)
         {
-            float angle = Mathf.Atan2(movementInput.y, movementInput.x) * Mathf.Rad2Deg;
-            rigidBody.rotation = angle;
+            rigidBody.velocity = movementInput * speed;
+
+            if (movementInput.sqrMagnitude > 0)
+            {
+                float angle = Mathf.Atan2(movementInput.y, movementInput.x) * Mathf.Rad2Deg;
+                rigidBody.rotation = angle;
+            }
         }
+    }
+
+    private void Update()
+    {
+        gaugeCanvas.position =  transform.position;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player") && vulnerable)
         {
-            gameController.ChangeRole();
+            if(other.gameObject.GetComponent<PlayerController>().vulnerable)
+            {
+                SetVulnerability(false);
+                gameController.ChangeRole();
+                SetVulnerability(true);
+
+                if (screenShake != null)
+                {
+                    screenShake.TriggerShake();
+                }
+            }
         }
     }
 

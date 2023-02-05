@@ -1,42 +1,50 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
-    public Transform player1;
-    public Transform player2;
+    public PlayerController player1;
+    public PlayerController player2;
     public Vector3 initialPosition1;
     public Vector3 initialPosition2;
     public float scoreGainRate;
     public float roleChangeTime;
     public int scoreCap;
+    public float distanceCap;
     public Text winText;
-    public Camera mainCamera;
+    //public Camera mainCamera;
+
+    public Text scoreText1;
+    public Text scoreText2;
 
     private float currentTime;
-    private bool player1Scores;
+    public bool player1Scores;
     private bool gameOver;
 
     void Start()
     {
         currentTime = 0;
         player1Scores = true;
+        player1.tag = "Hunter";
         gameOver = false;
         winText.gameObject.SetActive(false);
     }
 
     void Update()
     {
+        ScoreScreenUpdate();
         if (gameOver) return;
 
         currentTime += Time.deltaTime;
-        float distance = Vector3.Distance(player1.position, player2.position);
+        float distance = Vector3.Distance(player1.transform.position, player2.transform.position);
 
         if (player1Scores)
         {
-            player1.GetComponent<PlayerController>().score += scoreGainRate * (1 / distance) * Time.deltaTime;
-
-            if (player1.GetComponent<PlayerController>().score >= scoreCap)
+            if (distance < distanceCap)
+            {
+                player1.score += scoreGainRate * (1 / distance) * Time.deltaTime;
+            }
+            if (player1.score >= scoreCap)
             {
                 gameOver = true;
                 winText.gameObject.SetActive(true);
@@ -51,9 +59,12 @@ public class ScoreController : MonoBehaviour
         }
         else
         {
-            player2.GetComponent<PlayerController>().score += scoreGainRate * (1 / distance) * Time.deltaTime;
+            if (distance < distanceCap)
+            {
+                player2.score += scoreGainRate * (1 / distance) * Time.deltaTime;
+            }
 
-            if (player2.GetComponent<PlayerController>().score >= scoreCap)
+            if (player2.score >= scoreCap)
             {
                 gameOver = true;
                 winText.gameObject.SetActive(true);
@@ -68,11 +79,21 @@ public class ScoreController : MonoBehaviour
         }
     }
 
+    private void ScoreScreenUpdate()
+    {
+        scoreText1.text = player1.score + "/" + scoreCap;
+        scoreText2.text = player2.score + "/" + scoreCap;
+    }
+
     public void ChangeRole()
     {
-        player1.position = initialPosition1;
-        player2.position = initialPosition2;
+        player1.SetVulnerability(false);
+        player2.SetVulnerability(false);
+        player1.transform.position = initialPosition1;
+        player2.transform.position = initialPosition2;
         player1Scores = !player1Scores;
         currentTime = 0;
+        player1.SetVulnerability(true);
+        player2.SetVulnerability(true);
     }
 }
