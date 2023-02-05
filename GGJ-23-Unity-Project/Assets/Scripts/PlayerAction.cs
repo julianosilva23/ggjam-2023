@@ -50,7 +50,7 @@ public class PlayerAction : MonoBehaviour
 
     private void OnActionDash(InputValue context)
     {
-        if (!isDashing && energy >= dashCost)
+        if (!playerController.Stunned() && !isDashing && energy >= dashCost)
         {
             playerController.canMove = false;
             dashTime = dashDuration;
@@ -61,7 +61,7 @@ public class PlayerAction : MonoBehaviour
 
     private void OnActionShieldCast(InputValue context)
     {
-        if (!isCastingShield && shieldCastCost <= energy)
+        if (!playerController.Stunned() && !isCastingShield && shieldCastCost <= energy)
         {
             //Debug.Log("Shield!!!");
             shieldCastTime = shieldCastDuration;
@@ -74,7 +74,7 @@ public class PlayerAction : MonoBehaviour
 
     private void OnActionJump(InputValue context)
     {
-        if (!isDashing && !isJumping & energy >= jumpCost)
+        if (!playerController.Stunned() && !isDashing && !isJumping & energy >= jumpCost)
         {
             jumpTime = jumpDuration;
             isJumping = true;
@@ -138,6 +138,10 @@ public class PlayerAction : MonoBehaviour
             energy += energyRecoverySpeed * Time.fixedDeltaTime;
         }
         GaugeUpdate();
+    }
+
+    public bool isShieldActive(){
+        return isCastingShield;
     }
 
     private void GaugeUpdate()
