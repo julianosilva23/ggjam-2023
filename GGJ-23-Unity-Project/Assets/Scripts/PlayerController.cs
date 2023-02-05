@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -93,5 +94,11 @@ public class PlayerController : MonoBehaviour
         arrow.SetActive(!isFlagged);
         flag.SetActive(isFlagged);
         aoe.SetActive(isFlagged);
+    }
+
+    public void Retry()
+    {
+        Debug.Log("Retry!!!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
