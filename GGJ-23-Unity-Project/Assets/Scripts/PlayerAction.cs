@@ -14,6 +14,8 @@ public class PlayerAction : MonoBehaviour
     public float energyRecoverySpeed = 50f;
 
     public ScreenShake screenShake;
+    public RectTransform greenGauge;
+    public RectTransform redGauge;
 
     private Rigidbody2D rb2d;
     private float dashTime;
@@ -94,5 +96,11 @@ public class PlayerAction : MonoBehaviour
             energy += energyRecoverySpeed * Time.fixedDeltaTime;
             //Debug.Log(energy);
         }
+        GaugeUpdate();
+    }
+
+    private void GaugeUpdate()
+    {
+        greenGauge.sizeDelta = new Vector2((energy / maxEnergy) * redGauge.sizeDelta.x, greenGauge.sizeDelta.y);
     }
 }
