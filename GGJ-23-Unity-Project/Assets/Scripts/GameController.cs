@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     {
         currentTime = 0;
         player1Scores = true;
+        player1.tag = "Hunter";
         gameOver = false;
         winText.gameObject.SetActive(false);
     }

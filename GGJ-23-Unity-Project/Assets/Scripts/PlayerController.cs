@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && vulnerable)
         {
-            if(other.gamgeObject.GetComponent<PlayerController>().vulnerable)
+            if(other.gameObject.GetComponent<PlayerController>().vulnerable)
             {
                 SetVulnerability(false);
                 gameController.ChangeRole();
