@@ -918,6 +918,7 @@ MonoBehaviour:
   player2: {fileID: 0}
   initialPosition1: {x: -7.9, y: 0, z: 0}
   initialPosition2: {x: 7.9, y: 0, z: 0}
+  screenShake: {fileID: 0}
   scoreGainRate: 1
   roleChangeTime: 500
   scoreCap: 100
@@ -925,7 +926,8 @@ MonoBehaviour:
   winText: {fileID: 1276064577}
   scoreText1: {fileID: 1408744762}
   scoreText2: {fileID: 1351937865}
-  player1Scores: 0
+  timerText: {fileID: 0}
+  levelLayouts: []
 --- !u!1 &2018612995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,7 +1166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2045189506036256060, guid: fa8138800f74cc549bd306d3f491756d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2045189506036256063, guid: fa8138800f74cc549bd306d3f491756d, type: 3}
       propertyPath: m_RootOrder
