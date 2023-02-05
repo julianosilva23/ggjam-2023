@@ -276,6 +276,17 @@
                 },
                 {
                     "name": "",
+                    "id": "cbd341a7-fe85-4b7f-b658-2656346753f6",
+                    "path": "<SwitchProControllerHID>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionDash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e29e077e-09dc-4f62-84cf-582b8745beb5",
                     "path": "<Keyboard>/#(B)",
                     "interactions": "",
@@ -311,6 +322,17 @@
                     "name": "",
                     "id": "150918ed-0904-4126-8420-761bf68617af",
                     "path": "<DualShockGamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f061cf08-58d7-46a9-b7bd-5aa893d1778d",
+                    "path": "<SwitchProControllerHID>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
