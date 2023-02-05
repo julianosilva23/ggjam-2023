@@ -16,12 +16,16 @@ public class GameController : MonoBehaviour
 
     public Text scoreText1;
     public Text scoreText2;
+    public Text timerText;
 
     public bool player1Scores;
 
     private float currentTime;
     private bool gameStart;
     private bool gameOver;
+
+    private Color player1Collor = new Color(0.4377358f, 0.6808262f, 1, 0.8392157f);
+    private Color player2Collor = new Color(1, 0.4451141f, 0.2867924f, 0.8862745f);
 
     void Start()
     {
@@ -38,15 +42,18 @@ public class GameController : MonoBehaviour
         gameStart = true;
 
         //colors
-        player1.aoe.GetComponent<SpriteRenderer>().color = Color.blue;
-        //player1.arrow.GetComponent<SpriteRenderer>().color = Color.blue;
-        //player1.flag.GetComponent<SpriteRenderer>().color = Color.blue;
-        player1.GetComponent<PlayerAction>().shield.GetComponent<SpriteRenderer>().color = Color.blue;
+        player1.aoe.GetComponent<SpriteRenderer>().color = player1Collor;
+        //player1.arrow.GetComponent<SpriteRenderer>().color = player1Collor;
+        //player1.flag.GetComponent<SpriteRenderer>().color = player1Collor;
+        player1.GetComponent<PlayerAction>().shield.GetComponent<SpriteRenderer>().color = player1Collor;
 
-        player2.aoe.GetComponent<SpriteRenderer>().color = Color.red;
-        //player2.arrow.GetComponent<SpriteRenderer>().color = Color.red;
-        //player2.flag.GetComponent<SpriteRenderer>().color = Color.red;
-        player2.GetComponent<PlayerAction>().shield.GetComponent<SpriteRenderer>().color = Color.red;
+        player2.aoe.GetComponent<SpriteRenderer>().color = player2Collor;
+        //player2.arrow.GetComponent<SpriteRenderer>().color = player2Collor;
+        //player2.flag.GetComponent<SpriteRenderer>().color = player2Collor;
+        player2.GetComponent<PlayerAction>().shield.GetComponent<SpriteRenderer>().color = player2Collor;
+
+        scoreText1.color = player1Collor;
+        scoreText2.color = Color.white;
         
     }
 
@@ -56,6 +63,7 @@ public class GameController : MonoBehaviour
         ScoreScreenUpdate();
 
         currentTime += Time.deltaTime;
+        timerText.text = "" + (int) (roleChangeTime - currentTime);
         float distance = Vector3.Distance(player1.transform.position, player2.transform.position);
 
         if (player1Scores)
@@ -109,13 +117,27 @@ public class GameController : MonoBehaviour
     {
         player1.SetVulnerability(false);
         player2.SetVulnerability(false);
+
         player1.transform.position = initialPosition1;
         player2.transform.position = initialPosition2;
+
         player1Scores = !player1Scores;
-        player1.SetFlag(!player1Scores);
-        player2.SetFlag(player1Scores);
+        player1.SetFlag(player1Scores);
+
+        player2.SetFlag(!player1Scores);
         currentTime = 0;
         player1.SetVulnerability(true);
         player2.SetVulnerability(true);
+
+        if(player1Scores)
+        {
+            scoreText1.color = player1Collor;
+            scoreText2.color = Color.white;
+        }
+        else
+        {
+            scoreText1.color = Color.white;
+            scoreText2.color = player2Collor;
+        }
     }
 }
