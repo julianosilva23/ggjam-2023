@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashDuration: 0.2
-  jumpDuration: 2
+  jumpDuration: 1.2
   dashSpeed: 1
   energy: 100
   maxEnergy: 100

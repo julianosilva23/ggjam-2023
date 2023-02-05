@@ -94,4 +94,9 @@ public class PlayerController : MonoBehaviour
         flag.SetActive(isFlagged);
         aoe.SetActive(isFlagged);
     }
+
+    public void SetActiveCollider(bool isActive)
+    {
+        GetComponent<CapsuleCollider2D>().enabled = isActive;
+    }
 }

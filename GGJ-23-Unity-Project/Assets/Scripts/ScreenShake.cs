@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ScreenShake : MonoBehaviour
 {
-    public float shakeDuration = 2.0f;
+    public float shakeDuration = 0.5f;
     public float shakeAmount = 0.7f;
     public float decreaseFactor = 1.0f;
 

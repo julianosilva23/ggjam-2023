@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerAction : MonoBehaviour
 {
     public float dashDuration = 0.2f;
-    public float jumpDuration = 0.7f;
+    public float jumpDuration = 1.2f;
     public float dashSpeed = 5f;
     public float energy = 100f;
     public float maxEnergy = 100f;
@@ -106,6 +106,7 @@ public class PlayerAction : MonoBehaviour
             Debug.Log("pulando");
             jumpTime -= Time.fixedDeltaTime;
             playerController.SetVulnerability(true);
+            playerController.SetActiveCollider(false);
 
             transform.localScale += new Vector3(0.1f, 0, 0);
 
@@ -113,6 +114,7 @@ public class PlayerAction : MonoBehaviour
             {
                 Debug.Log("acabou o pulo");
                 playerController.SetVulnerability(false);
+                playerController.SetActiveCollider(true);
                 isJumping = false;
                 transform.localScale = new Vector3(1f, 1f, 0);
             }
