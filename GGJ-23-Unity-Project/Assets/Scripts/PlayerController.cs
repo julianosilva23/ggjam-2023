@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     public float score = 0;
 
+    public Transform gaugeCanvas;
+
     private Rigidbody2D rigidBody;
     private Vector2 movementInput;
 
@@ -37,6 +39,11 @@ public class PlayerController : MonoBehaviour
                 rigidBody.rotation = angle;
             }
         }
+    }
+
+    private void Update()
+    {
+        gaugeCanvas.position =  transform.position;
     }
 
     private void OnCollisionEnter2D(Collision2D other)

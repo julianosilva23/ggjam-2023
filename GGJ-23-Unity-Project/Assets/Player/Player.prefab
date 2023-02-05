@@ -156,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7878380175138055542}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GaugeContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,6 +262,7 @@ MonoBehaviour:
   vulnerable: 1
   canMove: 1
   score: 0
+  gaugeContainer: {fileID: 7878380175138055542}
 --- !u!114 &107790340097166662
 MonoBehaviour:
   m_ObjectHideFlags: 0
