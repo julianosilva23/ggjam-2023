@@ -5,10 +5,14 @@ using UnityEngine.InputSystem;
 public class PlayerAction : MonoBehaviour
 {
     public float dashDuration = 0.2f;
+    public float jumpDuration = 0.7f;
     public float dashSpeed = 5f;
     public float energy = 100f;
     public float maxEnergy = 100f;
+
     public float dashCost = 60f;
+    public float jumpCost = 60f;
+
     public float shieldCastDuration = 0.5f;
     public float shieldCastCost = 80f;
     public float energyRecoverySpeed = 50f;
@@ -21,7 +25,10 @@ public class PlayerAction : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private float dashTime;
+    private float jumpTime;
+
     private bool isDashing;
+    private bool isJumping;
     private float shieldCastTime;
     private bool isCastingShield;
     private PlayerController playerController;
@@ -48,7 +55,6 @@ public class PlayerAction : MonoBehaviour
             playerController.canMove = false;
             dashTime = dashDuration;
             isDashing = true;
-            //Debug.Log(isDashing);
             energy -= dashCost;
         }
     }
@@ -66,6 +72,17 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
+    private void OnActionJump(InputValue context)
+    {
+        if (!isDashing && !isJumping & energy >= jumpCost)
+        {
+            jumpTime = jumpDuration;
+            isJumping = true;
+            energy -= jumpCost;
+        }
+    }
+
+
     private void FixedUpdate()
     {
         if (isDashing)
@@ -81,6 +98,25 @@ public class PlayerAction : MonoBehaviour
                 playerController.canMove = true;
             }
         }
+
+
+        // pulo
+        if (isJumping && !isDashing)
+        {
+            Debug.Log("pulando");
+            jumpTime -= Time.fixedDeltaTime;
+            playerController.SetVulnerability(true);
+
+            transform.localScale += new Vector3(0.1f, 0, 0);
+
+            if (jumpTime <= 0)
+            {
+                Debug.Log("acabou o pulo");
+                playerController.SetVulnerability(false);
+                isJumping = false;
+                transform.localScale = new Vector3(1f, 1f, 0);
+            }
+        }        
 
         if (isCastingShield)
         {
@@ -98,7 +134,6 @@ public class PlayerAction : MonoBehaviour
         if (energy < maxEnergy)
         {
             energy += energyRecoverySpeed * Time.fixedDeltaTime;
-            //Debug.Log(energy);
         }
         GaugeUpdate();
     }

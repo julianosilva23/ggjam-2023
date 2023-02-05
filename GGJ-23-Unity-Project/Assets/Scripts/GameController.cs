@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     public Vector3 initialPosition1;
     public Vector3 initialPosition2;
 
+    public ScreenShake screenShake;
+
     public float scoreGainRate;
     public float roleChangeTime;
     public int scoreCap;
@@ -117,5 +119,11 @@ public class GameController : MonoBehaviour
         currentTime = 0;
         player1.SetVulnerability(true);
         player2.SetVulnerability(true);
+    }
+
+    public void TriggerShake()
+    {
+        Debug.Log(screenShake.shakeDuration);
+        screenShake.TriggerShake();
     }
 }

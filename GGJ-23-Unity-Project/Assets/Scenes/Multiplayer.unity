@@ -413,6 +413,7 @@ MonoBehaviour:
   player2: {fileID: 0}
   initialPosition1: {x: -7.9, y: 0, z: 0}
   initialPosition2: {x: 7.9, y: 0, z: 0}
+  screenShake: {fileID: 395500016}
   scoreGainRate: 1
   roleChangeTime: 500
   scoreCap: 100
