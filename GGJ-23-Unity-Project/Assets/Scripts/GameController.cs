@@ -17,8 +17,9 @@ public class GameController : MonoBehaviour
     public Text scoreText1;
     public Text scoreText2;
     public Text timerText;
+    public GameObject[] levelLayouts;
 
-    public bool player1Scores;
+    private bool player1Scores;
 
     private float currentTime;
     private bool gameStart;
@@ -32,6 +33,12 @@ public class GameController : MonoBehaviour
         gameOver = false;
         gameStart = false;
         winText.gameObject.SetActive(false);
+        levelLayouts[(int) Random.Range(0,levelLayouts.Length-0.1f)].SetActive(true);
+    }
+
+    void RandomizePlayerSprite()
+    {
+        //
     }
 
     public void buildPlayers()
