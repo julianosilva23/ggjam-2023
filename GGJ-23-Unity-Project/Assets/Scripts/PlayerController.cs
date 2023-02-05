@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform gaugeCanvas;
 
+    //public GameObject arrow;
     //public GameObject flag;
     public GameObject aoe;
 
@@ -27,11 +28,11 @@ public class PlayerController : MonoBehaviour
         {
             gameController.player1 = this;
             transform.position = gameController.initialPosition1;
-            this.SetFlag(true);
-        
+                    
         } else {
             gameController.player2 = this;
             transform.position = gameController.initialPosition2;
+            this.SetFlag(true);
             gameController.buildPlayers();
         }
     }
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetFlag(bool isFlagged)
     {
+        //arrow.SetActive(!isFlagged);
         //flag.SetActive(isFlagged);
         aoe.SetActive(isFlagged);
     }

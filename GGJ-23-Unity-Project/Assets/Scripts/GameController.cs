@@ -36,6 +36,18 @@ public class GameController : MonoBehaviour
         player1Scores = true;
         player1.tag = "Hunter";        
         gameStart = true;
+
+        //colors
+        player1.aoe.GetComponent<SpriteRenderer>().color = Color.blue;
+        //player1.arrow.GetComponent<SpriteRenderer>().color = Color.blue;
+        //player1.flag.GetComponent<SpriteRenderer>().color = Color.blue;
+        player1.GetComponent<PlayerAction>().shield.GetComponent<SpriteRenderer>().color = Color.blue;
+
+        player2.aoe.GetComponent<SpriteRenderer>().color = Color.red;
+        //player2.arrow.GetComponent<SpriteRenderer>().color = Color.red;
+        //player2.flag.GetComponent<SpriteRenderer>().color = Color.red;
+        player2.GetComponent<PlayerAction>().shield.GetComponent<SpriteRenderer>().color = Color.red;
+        
     }
 
     void Update()
@@ -100,8 +112,8 @@ public class GameController : MonoBehaviour
         player1.transform.position = initialPosition1;
         player2.transform.position = initialPosition2;
         player1Scores = !player1Scores;
-        player1.SetFlag(player1Scores);
-        player2.SetFlag(!player1Scores);
+        player1.SetFlag(!player1Scores);
+        player2.SetFlag(player1Scores);
         currentTime = 0;
         player1.SetVulnerability(true);
         player2.SetVulnerability(true);
