@@ -13,12 +13,23 @@ public class PlayerAction : MonoBehaviour
     public float shieldCastCost = 80f;
     public float energyRecoverySpeed = 50f;
 
+    public ScreenShake screenShake;
+
     private Rigidbody2D rb2d;
     private float dashTime;
     private bool isDashing;
     private float shieldCastTime;
     private bool isCastingShield;
     private PlayerController playerController;
+
+    private void Start()
+    {
+        // remover esta parte é somente um teste
+        if (screenShake != null)
+        {
+            screenShake.TriggerShake();
+        }
+    }
 
     private void Awake()
     {

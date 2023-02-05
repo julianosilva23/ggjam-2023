@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10.0f;
     public bool vulnerable = true;
     public bool canMove = true;
+    public ScreenShake screenShake;
 
     public float score = 0;
 
@@ -55,6 +56,11 @@ public class PlayerController : MonoBehaviour
                 SetVulnerability(false);
                 gameController.ChangeRole();
                 SetVulnerability(true);
+
+                if (screenShake != null)
+                {
+                    screenShake.TriggerShake();
+                }
             }
         }
     }
