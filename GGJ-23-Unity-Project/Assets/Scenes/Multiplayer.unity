@@ -559,10 +559,11 @@ MonoBehaviour:
   initialPosition2: {x: 7.9, y: 0, z: 0}
   screenShake: {fileID: 0}
   scoreGainRate: 3
-  roleChangeTime: 10
+  roleChangeTime: 20
   scoreCap: 100
   distanceCap: 10
   winText: {fileID: 0}
+  GameOverObject: {fileID: 1396008913}
   scoreText1: {fileID: 1987761894}
   scoreText2: {fileID: 1689114240}
   timerText: {fileID: 1991724117}
@@ -743,6 +744,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1396008913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5906875453938181900, guid: ca46cd42c228efe4698c9826681c922e, type: 3}
+  m_PrefabInstance: {fileID: 5906875452799370861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1689114238
 GameObject:
   m_ObjectHideFlags: 0

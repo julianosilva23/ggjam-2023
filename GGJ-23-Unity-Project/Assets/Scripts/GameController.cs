@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     public int scoreCap;
     public float distanceCap;
     public Text winText;
+    public GameObject GameOverObject;
 
     public Text scoreText1;
     public Text scoreText2;
@@ -35,6 +36,7 @@ public class GameController : MonoBehaviour
         gameOver = false;
         gameStart = false;
         winText.gameObject.SetActive(false);
+        GameOverObject.SetActive(false);
         levelLayouts[(int) Random.Range(0,levelLayouts.Length-0.1f)].SetActive(true);
     }
 
@@ -85,6 +87,7 @@ public class GameController : MonoBehaviour
             {
                 gameOver = true;
                 winText.gameObject.SetActive(true);
+                GameOverObject.SetActive(true);
                 winText.text = "Player 1 Wins!";
                 return;
             }
@@ -158,6 +161,8 @@ public class GameController : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if(gameOver) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

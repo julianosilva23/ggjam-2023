@@ -88,14 +88,12 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
-
     private void FixedUpdate()
     {
         if (isDashing)
         {
             dashTime -= Time.fixedDeltaTime;
             rb2d.velocity = (transform.right * dashSpeed)* 10;
-            Debug.Log(rb2d.velocity);
 
             if (dashTime <= 0)
             {
@@ -113,8 +111,6 @@ public class PlayerAction : MonoBehaviour
             jumpTime -= Time.fixedDeltaTime;
             playerController.SetVulnerability(true);
             playerController.SetActiveCollider(false);
-
-            Debug.Log(jumpTime);
 
             if (jumpTime <= 0)
             {
@@ -154,4 +150,9 @@ public class PlayerAction : MonoBehaviour
     {
         greenGauge.sizeDelta = new Vector2((energy / maxEnergy) * redGauge.sizeDelta.x, greenGauge.sizeDelta.y);
     }
+
+    public void OnActionRestart(InputValue context)
+    {
+        playerController.gameController.Retry();
+    }    
 }

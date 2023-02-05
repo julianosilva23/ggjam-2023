@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidBody;
     private Vector2 movementInput;
 
-    private GameController gameController;
+    public GameController gameController;
 
     private void Start()
     {
