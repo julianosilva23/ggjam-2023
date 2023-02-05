@@ -17,6 +17,21 @@ public class PlayerController : MonoBehaviour
 
     private GameController gameController;
 
+    private void Start()
+    {
+        // verificar o jogar 1 e 2
+        if (gameController.player1 == null)
+        {
+            gameController.player1 = this;
+            transform.position = gameController.initialPosition1;
+        
+        } else {
+            gameController.player2 = this;
+            transform.position = gameController.initialPosition2;
+            gameController.buildPlayers();
+        }
+    }
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();

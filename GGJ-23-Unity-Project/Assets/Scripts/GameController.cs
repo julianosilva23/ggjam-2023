@@ -7,33 +7,41 @@ public class GameController : MonoBehaviour
     public PlayerController player2;
     public Vector3 initialPosition1;
     public Vector3 initialPosition2;
+
     public float scoreGainRate;
     public float roleChangeTime;
     public int scoreCap;
     public float distanceCap;
     public Text winText;
-    //public Camera mainCamera;
 
     public Text scoreText1;
     public Text scoreText2;
 
-    private float currentTime;
     public bool player1Scores;
+
+    private float currentTime;
+    private bool gameStart;
     private bool gameOver;
 
     void Start()
     {
+        gameOver = false;
+        gameStart = false;
+        winText.gameObject.SetActive(false);
+    }
+
+    public void buildPlayers()
+    {
         currentTime = 0;
         player1Scores = true;
-        player1.tag = "Hunter";
-        gameOver = false;
-        winText.gameObject.SetActive(false);
+        player1.tag = "Hunter";        
+        gameStart = true;
     }
 
     void Update()
     {
+        if (gameOver || !gameStart) return;
         ScoreScreenUpdate();
-        if (gameOver) return;
 
         currentTime += Time.deltaTime;
         float distance = Vector3.Distance(player1.transform.position, player2.transform.position);
