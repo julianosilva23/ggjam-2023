@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform gaugeCanvas;
 
-    //public GameObject arrow;
-    //public GameObject flag;
+    public GameObject arrow;
+    public GameObject flag;
     public GameObject aoe;
 
     private Rigidbody2D rigidBody;
@@ -94,8 +94,8 @@ public class PlayerController : MonoBehaviour
 
     public void SetFlag(bool isFlagged)
     {
-        //arrow.SetActive(!isFlagged);
-        //flag.SetActive(isFlagged);
+        arrow.SetActive(!isFlagged);
+        flag.SetActive(isFlagged);
         aoe.SetActive(isFlagged);
     }
 }

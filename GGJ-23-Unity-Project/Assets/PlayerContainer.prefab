@@ -825,6 +825,8 @@ MonoBehaviour:
   screenShake: {fileID: 0}
   score: 0
   gaugeCanvas: {fileID: 8548856135513303170}
+  arrow: {fileID: 4938865480297371239}
+  flag: {fileID: 4734153057342565283}
   aoe: {fileID: 2358709873457097617}
 --- !u!114 &8548856135755686037
 MonoBehaviour:

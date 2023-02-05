@@ -43,13 +43,13 @@ public class GameController : MonoBehaviour
 
         //colors
         player1.aoe.GetComponent<SpriteRenderer>().color = player1Collor;
-        //player1.arrow.GetComponent<SpriteRenderer>().color = player1Collor;
-        //player1.flag.GetComponent<SpriteRenderer>().color = player1Collor;
+        player1.arrow.GetComponent<SpriteRenderer>().color = player1Collor;
+        player1.flag.GetComponent<SpriteRenderer>().color = player1Collor;
         player1.GetComponent<PlayerAction>().shield.GetComponent<SpriteRenderer>().color = player1Collor;
 
         player2.aoe.GetComponent<SpriteRenderer>().color = player2Collor;
-        //player2.arrow.GetComponent<SpriteRenderer>().color = player2Collor;
-        //player2.flag.GetComponent<SpriteRenderer>().color = player2Collor;
+        player2.arrow.GetComponent<SpriteRenderer>().color = player2Collor;
+        player2.flag.GetComponent<SpriteRenderer>().color = player2Collor;
         player2.GetComponent<PlayerAction>().shield.GetComponent<SpriteRenderer>().color = player2Collor;
 
         scoreText1.color = player1Collor;
