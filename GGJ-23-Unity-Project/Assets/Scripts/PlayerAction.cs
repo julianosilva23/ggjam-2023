@@ -91,6 +91,6 @@ public class PlayerAction : MonoBehaviour
 
     private void GaugeUpdate()
     {
-        gauge.Width = (energy / maxEnergy) * 2;
+        greenGauge.sizeDelta = new Vector2((energy / maxEnergy) * redGauge.sizeDelta.x, greenGauge.sizeDelta.y);
     }
 }
