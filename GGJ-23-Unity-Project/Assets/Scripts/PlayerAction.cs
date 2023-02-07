@@ -78,14 +78,15 @@ public class PlayerAction : MonoBehaviour
 
     private void OnActionJump(InputValue context)
     {
-        if (!playerController.Stunned() && !isDashing && !isJumping & energy >= jumpCost)
-        {
-            jumpTime = jumpDuration;
-            isJumping = true;
-            energy -= jumpCost;
-            animator.enabled = true;
-            animator.Play("Jump");
-        }
+        Debug.Log("pulando");
+        // if (!playerController.Stunned() && !isDashing && !isJumping & energy >= jumpCost)
+        // {
+        //     jumpTime = jumpDuration;
+        //     isJumping = true;
+        //     energy -= jumpCost;
+        //     animator.enabled = true;
+        //     animator.Play("Jump");
+        // }
     }
 
     private void FixedUpdate()
@@ -104,23 +105,23 @@ public class PlayerAction : MonoBehaviour
         }
 
 
-        // pulo
-        if (isJumping && !isDashing)
-        {
-            Debug.Log("pulando");
-            jumpTime -= Time.fixedDeltaTime;
-            playerController.SetVulnerability(true);
-            playerController.SetActiveCollider(false);
+        // // pulo
+        // if (isJumping && !isDashing)
+        // {
+        //     Debug.Log("pulando");
+        //     jumpTime -= Time.fixedDeltaTime;
+        //     playerController.SetVulnerability(true);
+        //     playerController.SetActiveCollider(false);
 
-            if (jumpTime <= 0)
-            {
-                animator.enabled = false;
-                playerController.SetVulnerability(false);
-                playerController.SetActiveCollider(true);
-                Debug.Log("parou de pular");
-                isJumping = false;
-            }
-        }        
+        //     if (jumpTime <= 0)
+        //     {
+        //         animator.enabled = false;
+        //         playerController.SetVulnerability(false);
+        //         playerController.SetActiveCollider(true);
+        //         Debug.Log("parou de pular");
+        //         isJumping = false;
+        //     }
+        // }        
 
         if (isCastingShield)
         {
